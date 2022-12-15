@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "97832982200",
+    "project_id": "panaderia-b266b",
+    "storage_bucket": "panaderia-b266b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97832982200:android:443e34a549325f7bf0064d",
+        "android_client_info": {
+          "package_name": "com.example.panaderia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97832982200-s4rstj4ki2sf2m0jdobdp4e6mjdja3li.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLGlFS2Sld004JTGjmgyciFxwuxm29l40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97832982200-s4rstj4ki2sf2m0jdobdp4e6mjdja3li.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

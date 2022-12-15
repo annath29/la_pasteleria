@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/beige"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="40dp"
+        android:gravity="center"
+        android:textColor="@color/purple_700"
+        android:textStyle="bold"
+        android:text="---La Pasteleria---" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:text="Codigo del producto" />
+
+    <EditText
+        android:id="@+id/etcodigo"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="25dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="11A0D010" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:text="Nombre del producto" />
+
+    <EditText
+        android:id="@+id/etnombre"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="25dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Harina de avena" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:text="Precio del producto" />
+
+
+    <EditText
+        android:id="@+id/etprecio"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="15000"
+        android:inputType="number"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/black"
+        android:text="Uso del producto" />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <RadioButton
+                android:id="@+id/rbcobertura"
+                android:layout_width="match_parent"
+                android:textSize="25dp"
+                android:checked="true"
+                android:layout_height="40dp"
+                android:text="  Cobertura" />
+
+            <RadioButton
+                android:id="@+id/rbbizcocho"
+                android:layout_width="match_parent"
+                android:textSize="25dp"
+                android:layout_height="40dp"
+                android:text="  Bizcocho" />
+
+            <RadioButton
+                android:id="@+id/rbadicionales"
+                android:layout_width="match_parent"
+                android:textSize="25dp"
+                android:layout_height="40dp"
+                android:text="  Adicionales" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/cbdisponible"
+        android:layout_width="300dp"
+        android:textSize="25dp"
+        android:layout_marginTop="5dp"
+        android:enabled="false"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text=" Disponible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btguardar"
+            android:textSize="23dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/black"
+            android:onClick="Guardar"
+            android:text="Guardar" />
+
+        <Button
+            android:id="@+id/btbuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:onClick="Buscar"
+            android:text="Buscar" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btmodificar"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:text="Modificar"
+            android:textColor="@color/black"
+            android:textSize="23dp" />
+
+        <Button
+            android:id="@+id/bteliminar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23dp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:text="Eliminar" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:textColor="@color/black"
+            android:onClick="Cancelar"
+            android:text="Cancelar" />
+    </LinearLayout>
+</LinearLayout>
