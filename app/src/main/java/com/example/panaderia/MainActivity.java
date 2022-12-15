@@ -149,10 +149,123 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void Modificar(View view){
+        codigo=jetcodigo.getText().toString();
+        nombre=jetnombre.getText().toString();
+        precio=jetprecio.getText().toString();
+
+        if(respuesta==true) {
+            if (codigo.isEmpty() || nombre.isEmpty() || precio.isEmpty()) {
+                Toast.makeText(this, "Todos los campos son requeridos", Toast.LENGTH_SHORT).show();
+                jetcodigo.requestFocus();
+            }
+            else {
+                if (jrbcobertura.isChecked()) {
+                    uso = "Cobertura";
+                }else {
+                    if (jrbbizcocho.isChecked()) {
+                        uso = "Bizcocho";
+                    } else {
+                        uso = "Adicionales";
+                    }
+                }
+                // Create a new user with a first and last name
+                Map<String, Object> producto = new HashMap<>();
+                producto.put("Codigo", codigo);
+                producto.put("Nombre", nombre);
+                producto.put("Precio", precio);
+                producto.put("Uso", uso);
+                producto.put("Disponible", "si");
+                //modificar
+                db.collection("Inventario").document(ident_doc)
+                        .set(producto)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(MainActivity.this, "Producto modificado correctamente", Toast.LENGTH_SHORT).show();
+                                Limpiar();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(MainActivity.this, "Error modificando producto", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
+        }
+        else {
+            Toast.makeText(this, "Debe buscar primero para modificar", Toast.LENGTH_SHORT).show();
+            jetcodigo.requestFocus();
+        }
+    }
+
+    public void Eliminar(View view){
+        codigo=jetcodigo.getText().toString();
+        nombre=jetnombre.getText().toString();
+        precio=jetprecio.getText().toString();
+
+        if (respuesta == true) {
+            if (codigo.isEmpty() || nombre.isEmpty() || precio.isEmpty()){
+                Toast.makeText(this, "Todos los campos son requeridos", Toast.LENGTH_SHORT).show();
+                jetcodigo.requestFocus();
+            }
+            else {
+                if (disponible.equals("no")){
+                    Toast.makeText(this, "No se puede eliminar el producto no esta disponible", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    if (jrbcobertura.isChecked()) {
+                        uso= "Cobertura";
+                    }
+                    else {
+                        if (jrbbizcocho.isChecked()) {
+                            uso= "Bizcocho";
+                        } else {
+                            uso= "Adicionales";
+                        }
+                    }
+                    // Create a new user with a first and last name
+                    Map<String, Object> producto = new HashMap<>();
+                    producto.put("Codigo", codigo);
+                    producto.put("Nombre", nombre);
+                    producto.put("Precio", precio);
+                    producto.put("Uso", uso);
+                    producto.put("Disponible", "No");
+
+                    // Modify a new document with a generated ID
+                    db.collection("Inventario").document(ident_doc)
+                            .set(producto)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(MainActivity.this, "Producto Eliminado", Toast.LENGTH_SHORT).show();
+                                    Limpiar();
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(MainActivity.this, "Error Eliminando Producto", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+            }
+
+
+        }
+        else {
+            Toast.makeText(this, "Debe buscar primero", Toast.LENGTH_SHORT).show();
+            jetcodigo.requestFocus();
+        }
+
+    }
+
     public void Cancelar(View view)
     {
         Limpiar();
     }
+
     private void Limpiar(){
         jetcodigo.setText("");
         jetnombre.setText("");
